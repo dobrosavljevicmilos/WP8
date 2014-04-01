@@ -1,0 +1,124 @@
+﻿<phone:PhoneApplicationPage
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:ViewModels="clr-namespace:App2.ViewModels"
+    x:Class="App2.MainPage"
+    mc:Ignorable="d"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait"  Orientation="Portrait"
+    shell:SystemTray.IsVisible="False"
+    Loaded="PhoneApplicationPage_Loaded"
+    x:Name="strana">
+    <phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar>
+            <shell:ApplicationBarIconButton IconUri="appbar_button.png" Text="Update" Click="ApplicationBarIconButton_Click"/>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.DataContext>
+            <ViewModels:Data/>
+        </Grid.DataContext>
+
+        <Grid.Resources>
+            <DataTemplate x:Key="header">
+                <Grid>
+                    <ContentPresenter>
+                        <TextBlock TextWrapping="Wrap" Text="Recnik za brucose" FontSize="50"/>
+                    </ContentPresenter>
+                </Grid>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <ProgressBar IsIndeterminate="True" x:Name="progressBar" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" Width="400" Height="100"/>
+        
+        <phone:Panorama Title="Vodič za srednjoškolce">
+            <phone:Panorama.Background>
+                <ImageBrush ImageSource="/Assets/PanoramaBackground.png"/>
+                
+            </phone:Panorama.Background>
+
+            <phone:PanoramaItem Header="Fakulteti">
+                <ListBox x:Name="listFakulteti" ItemsSource="{Binding 'Fakulteti'}" SelectionChanged="ListBox_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal" Margin="12,2,0,4" Width="432">
+                                <Grid>
+                                    <Rectangle Width="99" Height="99" Fill="White"/>
+                                    <Image Width="99" Height="99" Source="{Binding Images[0]}"/>
+                                </Grid>
+                                <StackPanel Width="311" Margin="8,0,0,0">
+                                    <TextBlock Text="{Binding Naziv}" TextWrapping="Wrap" Margin="10,0" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="25" />
+                                </StackPanel>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="Domovi">
+                <ListBox x:Name="listDomovi" ItemsSource="{Binding 'Domovi'}" SelectionChanged="listDomovi_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0,20,0,20" Width="432">
+                                <TextBlock Text="{Binding Naziv}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="25" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="Menze">
+                <ListBox x:Name="listMenze" ItemsSource="{Binding 'Menze'}" SelectionChanged="listMenze_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0,20,0,20" Width="432">
+                                <TextBlock Text="{Binding Naziv}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="25" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="Rečnik za brucose" HeaderTemplate="{StaticResource header}">
+                <ScrollViewer>
+                    <StackPanel>
+                        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,0,30,0">
+                            <Bold>Akreditacija</Bold><LineBreak/> Akreditacija predstavlja proces provere kvaliteta visokoškolskih ustanova i vrednovanje njihovih studijskih programa na svim nivoima studija. <LineBreak/><LineBreak/><Bold>Bolonjska deklaracija</Bold><LineBreak/> Bolonjska deklaracija je deklaracija koju je potpisalo 29 ministara obrazovanja evropskih zemalja 19. juna 1999. godine u Bolonji. Republika Srbija je postala potpisnica Bolonjske deklaracije 2003. godine i tada se obavezala da će reformisati svoje visoko obrazovanje u skladu sa deklaracijom. Cilj koji je postavljen je stvaranje evropske zone visokog obrazovanja. Usaglašavanjem studijskih programa, uvođenjem ujednačenih akademskih stepena i obezbeđivanjem odgovarajućeg statusa svršenih studenata, priznanjem njihovih diploma na
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,0,30,0">
+                            raznim evropskim univerzitetima, povećala bi se međunarodna kompetitivnost.<LineBreak/><LineBreak/><Bold>Budžet</Bold><LineBreak/> Po Zakonu o visokom obrazovanju, da bi student ostao na budžetu, treba u toku školske godine da ostvari 48 bodova. Odlukama Univerziteta je broj bodova za upis naredne godine smanjen za prve generacije „bolonjaca”. Studenti koji su trenutno na samofinansiranju mogu preći na budžet ukoliko ispune predviđene uslove za taj status.<Bold>Dodatak diplomi</Bold><LineBreak/> Student ima pravo da sluša i polaže i predmete koji nisu predviđeni njegovim studijskim programom. O tim ispitima se vodi posebna evidencija i ulaze u dodatak diplomi.<LineBreak/><LineBreak/><Bold>ESPB (Evropski sistem prenosa bodova)</Bold><LineBreak/> ESPB bodovi su kvantitativni pokazatelji opterećenja studenata na jednom predmetu. Prosto rečeno, za nedelju dana student treba da izdvoji za učenje onoliko sati koliko predmet nosi bodova. To uključuje predavanja i vežbe, predispitne obaveze koje student mora da ispuni, kao i samostalan rad.<LineBreak/><LineBreak/><Bold>Ispit</Bold><LineBreak/> Ispit može biti pismeni ili usmeni, ali i pismeni i usmeni. Forma ispita takođe može biti različita: u obliku testa, eseja i sl. Ispit može nositi minimalno 30 poena, a maksimalno 70 (od predviđenih 100 poena za svaki predmet). Ispit iz predmeta u zimskom semestru mogu se polagati u januarskom, aprilskom i junskom roku. Ispiti iz predmeta u letnjem semestru mogu se polagati u junskom, septembarskom i oktobarskom
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,0,30,0">
+                             roku.<LineBreak/><LineBreak/><Bold>Ispitna pitanja</Bold><LineBreak/> Ispitna pitanja su pitanja koja možete dobiti na ispitu. Neki profesori ih ne koriste nego na ispitu smisle kakvo pitanje. Ako postoje, poželjno je učiti po njima.<LineBreak/><LineBreak/><Bold>Ispitne kartice</Bold><LineBreak/> Ispitne kartice su kartice sa ispisanim ispitnim pitanjima, koje izvlačite na ispitu. Neki profesori ne koriste kartice nego vam sami biraju pitanja.<LineBreak/><LineBreak/><Bold>Kolokvijum</Bold><LineBreak/> Kolokvijum je jedan vid predispitnih obaveza. To je najčešće test/provera znanja gradiva koje je urađeno do zakazanog termina. Neka vrsta ispita pred pravi ispit. Ne postoji za sve predmete. Može da bude oslobađajući, tj. da deo gradiva koji ste položili na kolokvijumu ne morate polagati na ispitu, ali i ne mora biti tako. Upisuje se u indeks, ali u posebne stranice i ne ulazi u prosek. Ta ocena može ali ne mora mnogo da utiče na ocenu koju ćete dobiti na ispitu. Kolokvijum može biti i uslov da se izađete na ispit.<LineBreak/><LineBreak/><Bold>Koncept </Bold><LineBreak/>- Po dobijanju pitanja na ispitu, ako je reč o usmenom polaganju, uglavnom dobijate vreme da napišete koncept koji ćete koristiti pri izlaganju.<LineBreak/><LineBreak/><Bold>Obavezni predmeti</Bold><LineBreak/> Obavezni predmeti su predmeti koji su obavezni za neki studijski program ili profil. Ukoliko student ne položi ispit iz obaveznog predmeta, sledeće godine ponovo upisuje taj predmet.<LineBreak/><Bold><LineBreak/>Obavezni izborni predmeti (OPI) </Bold><LineBreak/>- Sem obaveznih predmeta, matična katedra nudi još nekoliko predmeta od kojih treba izabrati jedan ili dva tako da se ostvari odredjeni broj ESPB. Ti predmeti se zovu obavezni izborni predmeti jer se biraju sa liste ponuđenih predmeta koji mogu da se izaberu u statusu OPI. To znači da student pri izboru izbornog predmeta (za koji može da uzme bilo koji predmet koji se predaje na fakultetu, a ima status izbornosti i uklapa se u određeni broj poena koji je studentu na raspolaganju za izborni predmet).<LineBreak/><LineBreak/><Bold>Organizacija studija</Bold><LineBreak/> Zakonom o visokom obrazovanju studije su organizovane u tri stepena. Studije prvog stepena su osnovne akademske studije ili osnovne strukovne studije. Studije drugog stepena su diplomske akademske studije, diplomske strukovne studije, kao i specijalističke studije. Studije trećeg stepena su doktorske studije.<LineBreak/><LineBreak/><Bold>Osnovne akademske studije </Bold><LineBreak/>- Na osnovnim akademskim studijama se izvodi akademski program čiji je cilj da osposobi studente da razvijaju i primenjuju stečena naučna, teorijska, stručna znanja. Osnovne akademske studije mogu trajati tri, odnosno četiri godine, tj. u tom periodu treba ostvariti 180, odnosno 240 ESPB. Lice koje završi osnovne studije dobija zvanje prvog stepena (bachelor) iz odgovarajuće oblasti. Prema Zakonu, student može studirati maksimalno 8 godina na osnovnim akademskim studijama.<LineBreak/><LineBreak/><Bold>Ocenjivanje studenata</Bold><LineBreak/> Ocenjivanje studenta se vrši na osnovu predispitnih obaveza i samog ispita. Za pokazano znanje student dobija ocenu na skali od 5 (nije položio) do 10 (izuzetan). Svaki predmet je vrednovan sa 100 poena, u šta ulaze razne predispitne obaveze i (pismeni/usmeni) ispit. Da bi student položio, mora ostvariti najmanje 51 poen. Na osnovu stečenih poena student može dobiti na sledeće ocene:<LineBreak/> 0-50 ocena 5 (nije položio)<LineBreak/>51-60 ocena 6 (dovoljan)<LineBreak/>61-70 ocena 7 (dobar)<LineBreak/>71-80 ocena 8 (vrlo dobar)<LineBreak/>81-90 ocena 9 (odličan)<LineBreak/>91-100 ocena 10 (izuzetan)<LineBreak/><LineBreak/><Bold>Oktobar II</Bold><LineBreak/> Rok za ostvarivanje uslova. Nije predviđen statutima fakulteta ali ga često studenti izmole na kraju godine. Negde se ograničava na mogućnost polaganja samo jednog ispita u tom roku.<LineBreak/><LineBreak/><Bold>Overa semestra </Bold><LineBreak/>Ovo radite na kraju svakog semestra i za to su vam često potrebni skupljeni potpisi profesora. Overa je uslov da upišete sledeći semestar.<LineBreak/><LineBreak/><Bold>Predispitne obaveze</Bold><LineBreak/> U predispitne obaveze spadaju pohađanje predavanja i vežbi, izrada kolokvijuma, seminarskih radova, prezentacija i dr. Za svaki vid predispitnih obaveza stiče se određeni broj poena, onako kako ih profesor odredi. Predispitne obaveze mogu nositi između 30 i 70 poena (od predviđenih 100 poena za svaki predmet).<LineBreak/><LineBreak/><Bold>Predrok</Bold><LineBreak/> Ukoliko profesor odredi tako, ispit se može polagati i pre regularnog roka, tj. u predroku. Za ispite iz neparnog semestra to je decembar, a za parne ispite – maj. Drže ga neki profesori, uglavnom za one koji su bili vredniji &#8211; išli na vežbe, radili seminarske radove itd.<LineBreak/><LineBreak/><Bold>Prijava ispita</Bold><LineBreak/> Svaki ispit mora da se prijavi po obrascu fakulteta. Negde svi plaćaju ove prijave a negde samo samofinansirajući studenti. Uglavnom postoji i rok, za one koji su zakasnili sa prijavom, da to naknadno urade ali se to leepo plaća. Bez prijave ne možete polagati ispit, barem zvanično. Može se desiti i da studentska služba zagubi Vašu prijavu pa da ne budete prozvani na ispitu. Tad morate odmah ići u st. službu da probate to rešiti.
+                        </TextBlock>
+                        <TextBlock TextWrapping="Wrap" FontSize="20" Margin="0,0,30,0">
+                            <LineBreak/><LineBreak/><Bold>Promena ispitivača</Bold><LineBreak/> Moguća na nekim fakultetima ali se plaća.<LineBreak/><LineBreak/><Bold>Puštanje papira za potpis</Bold><LineBreak/> Ovo rade neki profesori i asistenti kako bi vodili evidenciju ko je prisutan. Neki čak i uporeduju nasumično vaš potpis sa vašim potpisom sa prethodnog predavanja. Ili vam ne puštaju papir za potpise nego vas prozivaju.<LineBreak/><LineBreak/><Bold>Samofinansiranje</Bold><LineBreak/> Ukoliko student ne ispuni uslove za budžet, može nastaviti studije, ali u statusu samofinansirajućeg studenta. Da bi upisao narednu godinu u statusu samofinansirajućeg, student takođe mora da zadovolji određene uslove.<LineBreak/><LineBreak/><Bold>Semestar</Bold><LineBreak/> Semestar je period u kome se održavaju predavanja i vežbe. Postoje letnji i zimski semestar.<LineBreak/><LineBreak/><Bold>Skripte</Bold><LineBreak/> Postoje neautorizovane (prave ih studenti) i autorizovane (prave ih profesori). Prve su uglavnom skraćena verzija gradiva. Neke su dovoljne za spremanje ispita a neke ni izbiliza.<LineBreak/><LineBreak/><Bold>Skupljanje potpisa</Bold><LineBreak/> Da biste overili semestar, uglavnom je potrebno da skupite potpise svih profesora i asistenata kojim oni potvrđuju da ste prisustvovali predavanjima i vežbama. Ako ih niste sve skupili, negde je moguće nadomestiti 1-2 potpisa tako što ćete to debelo platiti fakultetu.<LineBreak/><LineBreak/><Bold>Seminarski rad</Bold><LineBreak/> To je jedan vid predispitnih obaveza. Student dobija zadatak da obradi određeni problem u nekoj oblasti. Pisanjem seminarskog rada, student uči o naučnoj metodologiji, kao i tehnikama akademskog pisanja.<LineBreak/><LineBreak/><Bold>Studijski program</Bold><LineBreak/> To je skup obaveznih i izbornih predmeta. Savlađivanjem gradiva iz tih predmeta student stiče određena znanja i veštine koja su predvđena tim studijskim programom ili uže definisanim profilom.<LineBreak/><LineBreak/><Bold>Stipendije</Bold><LineBreak/> Stipendije se dodeljuju uspešnim, darovitim, vrednim studentima. Student može konkurisati za stipendiju tek od druge godine studija. Postoje razne vrste stipendija: domaće, inostrane, fondacijske, korporacijske i dr.<LineBreak/><LineBreak/><Bold>Studentski kredit</Bold><LineBreak/> Za studentske kredite mogu da konkurišu i brucoši i studenti starijih godina, pod uslovom da se školuju na budžetu, da im je prebivalište u Srbiji i da nisu izgubili više od jedne godine studija. Da li će krediti biti bespovratni ili će morati da se vrate zavisi od toga da li su ispoštovane sve tačke ugovora koji se potpisuje prilikom preuzimanja kredita. Da bi kredit bio bespovratan prosek ocena mora da bude 8.51.<LineBreak/><LineBreak/><Bold>Učenje po kombinacijama</Bold> &#8211; Na nekim ispitima se izvlače kartice sa nekoliko pitanja na njima. To su tzv. kombinacije. Učenje po kombinacijama često znači da nećete da naučite sva pitanja nego samo neka pa je praktičnije da naučite pitanja koja idu zajedno u kombinaciji. Ali negde se svako pitanje izvlači posebno.<LineBreak/><LineBreak/><Bold>Upisivanje ocene</Bold><LineBreak/> Ako vam ocena nije odmah upisana u indeks (ako ste polagali u predroku ili van roka a po dogovoru sa profesorom), postarajte se da se ocena na vreme nađe u profesorovom zapisniku i u vašem indeksu. Ako je nema ni na jednom od ta dva, knjigu u ruke pa ispočetka.<LineBreak/><LineBreak/><Bold>Uslov</Bold><LineBreak/> Minimalni broj ispita koje morate položiti da biste upisali sledeću godinu. Ostale možete preneti. Često se npr. za upis treće godine traži neki broj položenih ispita iz druge i čista prva.<LineBreak/><LineBreak/><Bold>Uslovni ispit</Bold><LineBreak/> Ispiti koji se moraju položiti da biste mogli upisati sledeću godinu. Ne postoje svugde.<LineBreak/><LineBreak/><Bold>Vežbe</Bold><LineBreak/> Drže ih uglavnom asistenti. Trebalo bi da budu vežbe ispredavanog znanja, što negde i jesu, ali su negde samo teoretisanje i ponavljanje predavanja. Uglavnom su obavezna a posebno na prirodnim fakultetima.<LineBreak/><LineBreak/><Bold>Mobilnost</Bold><LineBreak/> Mobilnost podrazumeva međuuniverzitetsku pokretljivost studenata, nastavnog osoblja i istraživača kako u zemlji, tako i u inostranstvu bez obzira na to da li se radi samo o jednom delu studija(semestar, akademska godina) ili o nastavku celokupnih studija. Mobilnost studenata je jedan od prioriteta Evropske unije u oblasti obrazovne politike i to se najbolje očitava kroz finansijska sredstva investirana u programe mobilnosti kao što su Erasmus, Erasmus Mundus i drugi.<LineBreak/><LineBreak/><Bold>Čip kartica</Bold><LineBreak/> Za ostvarivanje prava na ishranu i smeštaj, kao legitimacija u okviru SC „Beograd” koristi se čip kartica. Pravo na izdavanje čip kartice imaju svi studenti čije se školovanje finansira iz budžeta Republike Srbije. Za izdavanje nove studentske čip kartice potrebni su: lična karta, indeks sa upisanim zimskim semestrom, popunjen Zahtev za izdavanje čip kartice i priznanice o uplati za potrebe izrade čip kartice. Žeton se dobija zajedno sa čip karticom i služi za dobijanje pribora. Bonovi za čip karticu dopunjuju se svakog meseca ili sedmično.
+                        </TextBlock>
+                    </StackPanel>
+                </ScrollViewer>
+            </phone:PanoramaItem>
+
+            <phone:PanoramaItem Header="Vesti">
+                <ListBox x:Name="listVesti" ItemsSource="{Binding 'Vesti'}" SelectionChanged="listVesti_SelectionChanged">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Vertical" Margin="0,20,0,20" Width="432">
+                                <TextBlock Text="{Binding Naslov}" TextWrapping="Wrap" Style="{StaticResource PhoneTextExtraLargeStyle}" FontSize="25" />
+                                <TextBlock Text="{Binding Datum}" FontSize="15" Margin="20,0,0,0" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </phone:PanoramaItem>
+
+        </phone:Panorama>
+
+    </Grid>
+</phone:PhoneApplicationPage>

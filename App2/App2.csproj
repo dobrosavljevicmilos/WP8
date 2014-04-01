@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6DF73838-6305-4F46-BE61-F864DADD3F6B}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>App2</RootNamespace>
+    <AssemblyName>App2</AssemblyName>
+    <TargetFrameworkIdentifier>WindowsPhone</TargetFrameworkIdentifier>
+    <TargetFrameworkVersion>v8.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>App2_$(Configuration)_$(Platform).xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>App2.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+    <MinimumVisualStudioVersion>11.0</MinimumVisualStudioVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\x86\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\x86\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|ARM' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\ARM\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|ARM' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\ARM\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageDomovi.xaml.cs">
+      <DependentUpon>PageDomovi.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageFakultet.xaml.cs">
+      <DependentUpon>PageFakultet.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LocalizedStrings.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PageMenze.xaml.cs">
+      <DependentUpon>PageMenze.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\AppResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AppResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\data.cs" />
+    <Compile Include="ViewModels\ItemViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="PageDomovi.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PageFakultet.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <DesignData Include="SampleData\MainViewModelSampleData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </DesignData>
+    <Page Include="PageMenze.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\PanoramaBackground.png" />
+    <Content Include="Images\Arhitektonski fakultet\1.png" />
+    <Content Include="Images\Arhitektonski fakultet\2.jpg" />
+    <Content Include="Images\Arhitektonski fakultet\3.jpg" />
+    <Content Include="Images\Beogradska politehnika - visoka škola strukovnih studija\1.jpg" />
+    <Content Include="Images\Beogradska politehnika - visoka škola strukovnih studija\2.jpg" />
+    <Content Include="Images\Beogradska politehnika - visoka škola strukovnih studija\3.jpg" />
+    <Content Include="Images\Beogradska poslovna škola strukovnih studija\1.jpg" />
+    <Content Include="Images\Beogradska poslovna škola strukovnih studija\2.jpg" />
+    <Content Include="Images\Beogradska poslovna škola strukovnih studija\3.jpg" />
+    <Content Include="Images\Biološki fakultet\1.png" />
+    <Content Include="Images\Biološki fakultet\2.jpg" />
+    <Content Include="Images\Biološki fakultet\3.jpg" />
+    <Content Include="Images\Biološki fakultet\4.jpg" />
+    <Content Include="Images\Ekonomski fakultet\1.png" />
+    <Content Include="Images\Ekonomski fakultet\2.jpg" />
+    <Content Include="Images\Ekonomski fakultet\3.jpg" />
+    <Content Include="Images\Elektrotehnički fakultet\1.png" />
+    <Content Include="Images\Elektrotehnički fakultet\2.jpg" />
+    <Content Include="Images\Elektrotehnički fakultet\3.jpg" />
+    <Content Include="Images\Fakultet bezbednosti\1.png" />
+    <Content Include="Images\Fakultet bezbednosti\2.jpg" />
+    <Content Include="Images\Fakultet bezbednosti\3.jpg" />
+    <Content Include="Images\Fakultet bezbednosti\4.jpg" />
+    <Content Include="Images\Fakultet organizacionih nauka\1.png" />
+    <Content Include="Images\Fakultet organizacionih nauka\2.jpg" />
+    <Content Include="Images\Fakultet organizacionih nauka\3.jpg" />
+    <Content Include="Images\Fakultet organizacionih nauka\4.jpg" />
+    <Content Include="Images\Fakultet političkih nauka\1.png" />
+    <Content Include="Images\Fakultet političkih nauka\2.jpg" />
+    <Content Include="Images\Fakultet političkih nauka\3.jpg" />
+    <Content Include="Images\Fakultet sporta i fizičkog vaspitanja\1.png" />
+    <Content Include="Images\Fakultet sporta i fizičkog vaspitanja\2.jpg" />
+    <Content Include="Images\Fakultet sporta i fizičkog vaspitanja\3.jpg" />
+    <Content Include="Images\Fakultet veterinarske medicine\1.png" />
+    <Content Include="Images\Fakultet veterinarske medicine\2.jpg" />
+    <Content Include="Images\Fakultet veterinarske medicine\3.jpg" />
+    <Content Include="Images\Fakultet veterinarske medicine\4.jpg" />
+    <Content Include="Images\Fakultet veterinarske medicine\5.jpg" />
+    <Content Include="Images\Fakultet za fizičku hemiju\1.png" />
+    <Content Include="Images\Fakultet za fizičku hemiju\2.jpg" />
+    <Content Include="Images\Fakultet za specijalnu edukaciju i rehabilitaciju\1.png" />
+    <Content Include="Images\Fakultet za specijalnu edukaciju i rehabilitaciju\2.jpg" />
+    <Content Include="Images\Fakultet za specijalnu edukaciju i rehabilitaciju\3.png" />
+    <Content Include="Images\Farmaceutski fakultet\1.png" />
+    <Content Include="Images\Farmaceutski fakultet\2.jpg" />
+    <Content Include="Images\Farmaceutski fakultet\3.jpg" />
+    <Content Include="Images\Filološki fakultet\1.png" />
+    <Content Include="Images\Filološki fakultet\2.jpg" />
+    <Content Include="Images\Filološki fakultet\3.jpg" />
+    <Content Include="Images\Filozofski fakultet\1.png" />
+    <Content Include="Images\Filozofski fakultet\2.jpg" />
+    <Content Include="Images\Filozofski fakultet\3.jpg" />
+    <Content Include="Images\Fizički fakultet\1.png" />
+    <Content Include="Images\Fizički fakultet\2.jpg" />
+    <Content Include="Images\Fizički fakultet\3.jpg" />
+    <Content Include="Images\Fizički fakultet\4.jpg" />
+    <Content Include="Images\Građevinski fakultet\1.png" />
+    <Content Include="Images\Građevinski fakultet\2.jpg" />
+    <Content Include="Images\Građevinski fakultet\3.jpg" />
+    <Content Include="Images\Hemijski fakultet\1.png" />
+    <Content Include="Images\Hemijski fakultet\2.jpg" />
+    <Content Include="Images\Hemijski fakultet\3.jpg" />
+    <Content Include="Images\Hemijski fakultet\4.jpg" />
+    <Content Include="Images\Mašinski fakultet\1.png" />
+    <Content Include="Images\Mašinski fakultet\2.jpg" />
+    <Content Include="Images\Mašinski fakultet\3.jpg" />
+    <Content Include="Images\Medicinski fakultet\1.png" />
+    <Content Include="Images\Medicinski fakultet\2.jpg" />
+    <Content Include="Images\menza.png" />
+    <Content Include="Images\Poljoprivredni fakultet\1.png" />
+    <Content Include="Images\Poljoprivredni fakultet\2.jpg" />
+    <Content Include="Images\Poljoprivredni fakultet\3.jpg" />
+    <Content Include="Images\Pravni fakultet\1.png" />
+    <Content Include="Images\Pravni fakultet\2.jpg" />
+    <Content Include="Images\Pravoslavni bogoslovski fakultet\1.png" />
+    <Content Include="Images\Pravoslavni bogoslovski fakultet\2.jpg" />
+    <Content Include="Images\Pravoslavni bogoslovski fakultet\3.jpg" />
+    <Content Include="Images\Rudarsko-geološki fakultet\1.png" />
+    <Content Include="Images\Rudarsko-geološki fakultet\2.jpg" />
+    <Content Include="Images\Saobraćajni fakultet\1.png" />
+    <Content Include="Images\Saobraćajni fakultet\2.jpg" />
+    <Content Include="Images\Stomatološki fakultet\1.png" />
+    <Content Include="Images\Stomatološki fakultet\2.jpg" />
+    <Content Include="Images\Tehnički fakultet u Boru\1.png" />
+    <Content Include="Images\Tehnički fakultet u Boru\2.jpg" />
+    <Content Include="Images\Tehnološko-metalurški fakultet\1.png" />
+    <Content Include="Images\Tehnološko-metalurški fakultet\2.jpg" />
+    <Content Include="Images\Tehnološko-metalurški fakultet\3.jpg" />
+    <Content Include="Images\Učiteljski fakultet\1.png" />
+    <Content Include="Images\Visoka građevinsko-geodetska škola strukovnih studija\1.png" />
+    <Content Include="Images\Visoka građevinsko-geodetska škola strukovnih studija\2.jpg" />
+    <Content Include="Images\Visoka hotelijerska škola strukovnih studija\1.png" />
+    <Content Include="Images\Visoka hotelijerska škola strukovnih studija\2.jpg" />
+    <Content Include="Images\Visoka hotelijerska škola strukovnih studija\3.jpg" />
+    <Content Include="Images\Visoka inženjerska škola strukovnih studija\1.jpg" />
+    <Content Include="Images\Visoka tehnička škola strukovnih studija\1.jpg" />
+    <Content Include="Images\Visoka tehnička škola strukovnih studija\2.jpg" />
+    <Content Include="Images\Visoka tehnička škola strukovnih studija\3.jpg" />
+    <Content Include="Images\Visoka tekstilna strukovna škola za dizajn, tehnologiju i menadžment\1.jpg" />
+    <Resource Include="Images\Visoka turistička škola strukovnih studija\1.gif" />
+    <Content Include="Images\Visoka turistička škola strukovnih studija\2.jpg" />
+    <Content Include="Images\Visoka turistička škola strukovnih studija\3.jpg" />
+    <Resource Include="Images\Visoka zdravstvena škola strukovnih studija\1.gif" />
+    <Content Include="Images\Visoka zdravstvena škola strukovnih studija\2.jpg" />
+    <Content Include="Images\Visoka škola elektrotehnike i računarstva strukovnih studija\1.jpg" />
+    <Content Include="Images\Visoka škola elektrotehnike i računarstva strukovnih studija\2.jpg" />
+    <Content Include="Images\Visoka škola elektrotehnike i računarstva strukovnih studija\3.jpg" />
+    <Content Include="Images\Visoka škola strukovnih studija za informacione i komunikacione tehnologije\1.jpg" />
+    <Content Include="Images\Visoka škola strukovnih studija za informacione i komunikacione tehnologije\2.jpg" />
+    <Content Include="Images\Visoka škola strukovnih studija za informacione i komunikacione tehnologije\3.jpg" />
+    <Content Include="Images\Visoka železnička škola strukovnih studija\1.jpg" />
+    <Content Include="Images\Visoka železnička škola strukovnih studija\2.jpg" />
+    <Content Include="Images\Šumarski fakultet\1.png" />
+    <Content Include="Images\Šumarski fakultet\2.jpg" />
+    <Content Include="Images\Šumarski fakultet\3.jpg" />
+    <Content Include="Images\Šumarski fakultet\4.jpg" />
+    <Content Include="Images\Šumarski fakultet\5.jpg" />
+    <Content Include="aaa.txt" />
+    <Content Include="Assets\AlignmentGrid.png" />
+    <Content Include="Assets\ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileMedium.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\FlipCycleTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileMediumLarge.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Assets\Tiles\IconicTileSmall.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\AppResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>AppResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.1\lib\portable-net45+wp80+win8\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).$(TargetFrameworkVersion).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\$(TargetFrameworkIdentifier)\$(TargetFrameworkVersion)\Microsoft.$(TargetFrameworkIdentifier).CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>
